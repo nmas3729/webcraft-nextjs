@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   1. CORE VARIABLES (Neon & Dark)
+   ============================================ */
+:root {
+    --primary-color: #00f3ff;       /* Neon Cyan */
+    --primary-dark: #00aaff;        /* Darker Blue */
+    --bg-primary: #020617;          /* Deep Space Black */
+    --bg-secondary: #0f172a;        /* Slightly lighter dark */
+    --text-primary: #ffffff;
+    --text-secondary: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border-color: rgba(0, 243, 255, 0.2);
+    --glass-panel: rgba(15, 23, 42, 0.7);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Background Grid */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: 
+        linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* ============================================
+   2. BANNER & NAV
+   ============================================ */
+.banner {
+    background: linear-gradient(90deg, #0055ff, #00f3ff);
+    color: #000;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative; z-index: 2000;
+}
+
+nav {
+    background: rgba(2, 6, 23, 0.95);
+    border-bottom: 1px solid var(--border-color);
+    padding: 20px 0;
+    position: sticky; top: 0; z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.logo { font-size: 24px; font-weight: 800; color: var(--text-primary); text-decoration: none; }
+.logo-accent { color: var(--primary-color); text-shadow: 0 0 15px var(--primary-color); }
+
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: all 0.3s; }
+.nav-links a:hover { color: var(--primary-color); text-shadow: 0 0 8px var(--primary-color); }
+
+/* ============================================
+   3. BUTTONS
+   ============================================ */
+.btn {
+    padding: 12px 28px; border-radius: 6px; font-weight: 700; cursor: pointer;
+    transition: all 0.3s ease; text-decoration: none; display: inline-block;
+    text-transform: uppercase; font-size: 14px; letter-spacing: 1px; border: none;
+}
+.btn-primary {
+    background: transparent; border: 1px solid var(--primary-color);
+    color: var(--primary-color); box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+}
+.btn-primary:hover {
+    background: var(--primary-color); color: #000;
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.6); transform: translateY(-2px);
+}
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-secondary); margin-left: 10px;
+}
+.btn-full { width: 100%; text-align: center; }
+
+/* ============================================
+   4. HERO & SECTIONS
+   ============================================ */
+.hero { padding: 120px 0 100px; text-align: center; position: relative; }
+.hero h1 { font-size: clamp(40px, 6vw, 64px); font-weight: 800; line-height: 1.1; margin-bottom: 24px; color: var(--text-primary); }
+.hero .highlight { color: var(--primary-color); display: block; text-shadow: 0 0 30px rgba(0, 243, 255, 0.4); }
+.hero p { font-size: 20px; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin: 0 auto 40px; }
+.hero-ctas { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
+.trust-line { display: flex; justify-content: center; gap: 30px; color: var(--text-muted); font-size: 14px; flex-wrap: wrap; }
+
+section { padding: 100px 0; }
+.section-title {
+    text-align: center; font-size: 36px; font-weight: 700; margin-bottom: 60px;
+    color: var(--text-primary); text-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+}
+
+.benefits, .pricing-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+}
+
+.benefit, .price-card {
+    background: var(--glass-panel); border: 1px solid var(--border-color);
+    padding: 40px; border-radius: 12px; backdrop-filter: blur(10px);
+}
+.price-card.featured {
+    border: 2px solid var(--primary-color); background: rgba(15, 23, 42, 0.9); transform: scale(1.05);
+}
+.badge {
+    background: var(--primary-color); color: #000; padding: 4px 12px;
+    border-radius: 20px; font-size: 12px; font-weight: 800; text-transform: uppercase;
+    display: inline-block; margin-bottom: 15px;
+}
+.price { font-size: 48px; font-weight: 700; color: var(--text-primary); margin: 20px 0; }
+.features { list-style: none; margin-bottom: 30px; text-align: left; }
+.features li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); }
+.features li::before { content: "✓"; color: var(--primary-color); margin-right: 10px; font-weight: bold; }
+
+/* ============================================
+   5. HOW IT WORKS (FIXED & ALIEN)
+   ============================================ */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+    position: relative; 
+    /* Ensures stacking context is local, so line stays relative to this section */
+    isolation: isolate; 
+}
+
+/* The Connecting Line - Brighter & Visible */
+.steps::before {
+    content: '';
+    position: absolute;
+    top: 30px; /* Vertically center with the 60px circles */
+    left: 10%;
+    right: 10%;
+    height: 4px; /* Thicker for visibility */
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    
+    /* FIX: Use z-index 0 to sit inside the container, but behind the z-index 10 numbers */
+    z-index: -1; 
+    opacity: 0.8;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+.step {
+    position: relative;
+    background: transparent; 
+    z-index: 1;
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--bg-primary); /* VITAL: Covers the line passing behind */
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    
+    /* OVERRIDE: This kills the tilted rotation bug from GSAP */
+    transform: none !important; 
+    rotate: 0deg !important;
+    
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+    z-index: 10; /* Ensures it sits ON TOP of the line */
+}
+
+.step h3 { color: var(--text-primary); margin-bottom: 10px; font-size: 20px; }
+
+/* ============================================
+   6. FAQ & CONTACT
+   ============================================ */
+.faq { max-width: 800px; margin: 0 auto; }
+.faq-item {
+    background: var(--glass-panel); border: 1px solid var(--border-color);
+    border-radius: 8px; margin-bottom: 15px; overflow: hidden;
+}
+.faq-question {
+    width: 100%; padding: 20px; text-align: left; background: none; border: none;
+    color: var(--text-primary); font-weight: 600; cursor: pointer;
+    display: flex; justify-content: space-between;
+}
+.faq-answer { 
+    padding: 0 20px; color: var(--text-muted); max-height: 0; overflow: hidden; 
+    transition: all 0.3s ease;
+}
+.faq-item.active .faq-answer { padding: 0 20px 20px; max-height: 500px; }
+.faq-item.active .faq-question { color: var(--primary-color); }
+
+.contact { background: linear-gradient(180deg, var(--bg-primary) 0%, #0f172a 100%); }
+.contact form {
+    max-width: 500px; margin: 0 auto; background: rgba(15, 23, 42, 0.8);
+    padding: 40px; border-radius: 16px; border: 1px solid var(--primary-color);
+}
+.form-group { margin-bottom: 20px; }
+input, select, textarea {
+    width: 100%; padding: 15px; background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #334155; border-radius: 8px; color: #fff; margin-bottom: 10px;
+}
+
+/* ============================================
+   7. FOOTER
+   ============================================ */
+footer {
+    background: var(--bg-secondary); color: var(--text-secondary);
+    padding: 60px 0 20px; border-top: 1px solid var(--border-color); font-size: 14px;
+}
+.footer-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px; margin-bottom: 40px; align-items: start;
+}
+footer h4 { color: var(--text-primary); margin-bottom: 20px; font-weight: 700; text-transform: uppercase; }
+footer ul { list-style: none; padding: 0; margin: 0; }
+footer ul li { margin-bottom: 12px; }
+footer a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; display: inline-block; }
+footer a:hover { color: var(--primary-color); transform: translateX(5px); }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+    text-align: center; color: var(--text-muted); font-size: 13px;
+}
+
+/* WhatsApp */
+.whatsapp-float {
+    position: fixed; bottom: 20px; right: 20px; background: #25D366;
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; z-index: 2000;
+}
+.whatsapp-float svg { width: 35px; height: 35px; fill: white; }
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+    .steps::before { display: none; } /* Hide line on mobile */
+    .steps { grid-template-columns: 1fr; }
+}
