@@ -3,260 +3,1193 @@
 @tailwind utilities;
 
 /* ============================================
-   1. CORE VARIABLES (Neon & Dark)
+   Modern UI Styles with GSAP Animation Support
    ============================================ */
-:root {
-    --primary-color: #00f3ff;       /* Neon Cyan */
-    --primary-dark: #00aaff;        /* Darker Blue */
-    --bg-primary: #020617;          /* Deep Space Black */
-    --bg-secondary: #0f172a;        /* Slightly lighter dark */
-    --text-primary: #ffffff;
-    --text-secondary: #e2e8f0;
-    --text-muted: #94a3b8;
-    --border-color: rgba(0, 243, 255, 0.2);
-    --glass-panel: rgba(15, 23, 42, 0.7);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+:root {
+    --primary-color: #00d4ff;
+    --primary-dark: #00b8e6;
+    --bg-primary: #0a1628;
+    --bg-secondary: #0f1f3a;
+    --bg-dark: #050d18;
+    --text-primary: #ffffff;
+    --text-secondary: #e5e7eb;
+    --text-muted: #9ca3af;
+    --border-color: rgba(0, 212, 255, 0.2);
+    --shadow-glow: rgba(0, 212, 255, 0.4);
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    background-color: var(--bg-primary);
-    color: var(--text-secondary);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
+    color: var(--text-secondary);
+    background: var(--bg-primary);
     overflow-x: hidden;
 }
 
-/* Background Grid */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background-image: 
-        linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    pointer-events: none;
-    z-index: -1;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
 /* ============================================
-   2. BANNER & NAV
+   Banner
    ============================================ */
 .banner {
-    background: linear-gradient(90deg, #0055ff, #00f3ff);
-    color: #000;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0099ff 100%);
+    color: white;
     text-align: center;
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1001;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+    animation: bannerGlow 3s ease-in-out infinite;
+}
+
+@keyframes bannerGlow {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 30px rgba(0, 212, 255, 0.5);
+    }
+}
+
+.banner strong {
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative; z-index: 2000;
 }
-
-nav {
-    background: rgba(2, 6, 23, 0.95);
-    border-bottom: 1px solid var(--border-color);
-    padding: 20px 0;
-    position: sticky; top: 0; z-index: 1000;
-    backdrop-filter: blur(10px);
-}
-
-.nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.logo { font-size: 24px; font-weight: 800; color: var(--text-primary); text-decoration: none; }
-.logo-accent { color: var(--primary-color); text-shadow: 0 0 15px var(--primary-color); }
-
-.nav-links { display: flex; gap: 30px; list-style: none; }
-.nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: all 0.3s; }
-.nav-links a:hover { color: var(--primary-color); text-shadow: 0 0 8px var(--primary-color); }
 
 /* ============================================
-   3. BUTTONS
+   Navigation
+   ============================================ */
+nav {
+    background: rgba(10, 22, 40, 0.95);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav.scrolled {
+    background: rgba(10, 22, 40, 0.98);
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(0, 212, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    transition: all 0.3s;
+}
+
+.logo:hover {
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+}
+
+.logo-accent {
+    color: var(--primary-color);
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   Buttons
    ============================================ */
 .btn {
-    padding: 12px 28px; border-radius: 6px; font-weight: 700; cursor: pointer;
-    transition: all 0.3s ease; text-decoration: none; display: inline-block;
-    text-transform: uppercase; font-size: 14px; letter-spacing: 1px; border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
 }
+
 .btn-primary {
-    background: transparent; border: 1px solid var(--primary-color);
-    color: var(--primary-color); box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+    background: var(--primary-color);
+    color: var(--bg-primary);
+    font-weight: 700;
 }
+
+.contact .btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.contact .btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.5);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
 .btn-primary:hover {
-    background: var(--primary-color); color: #000;
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.6); transform: translateY(-2px);
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px var(--shadow-glow);
 }
+
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--text-secondary); margin-left: 10px;
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
 }
-.btn-full { width: 100%; text-align: center; }
+
+.btn-secondary:hover {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2);
+}
+
+.btn-full {
+    width: 100%;
+    padding: 16px;
+}
 
 /* ============================================
-   4. HERO & SECTIONS
+   Hero Section - Futuristic
    ============================================ */
-.hero { padding: 120px 0 100px; text-align: center; position: relative; }
-.hero h1 { font-size: clamp(40px, 6vw, 64px); font-weight: 800; line-height: 1.1; margin-bottom: 24px; color: var(--text-primary); }
-.hero .highlight { color: var(--primary-color); display: block; text-shadow: 0 0 30px rgba(0, 243, 255, 0.4); }
-.hero p { font-size: 20px; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin: 0 auto 40px; }
-.hero-ctas { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
-.trust-line { display: flex; justify-content: center; gap: 30px; color: var(--text-muted); font-size: 14px; flex-wrap: wrap; }
-
-section { padding: 100px 0; }
-.section-title {
-    text-align: center; font-size: 36px; font-weight: 700; margin-bottom: 60px;
-    color: var(--text-primary); text-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+.hero {
+    padding: 100px 0 120px;
+    text-align: center;
+    background: 
+        linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%),
+        radial-gradient(circle at 30% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 50%, rgba(0, 153, 255, 0.15) 0%, transparent 50%);
+    position: relative;
+    overflow: hidden;
 }
 
-.benefits, .pricing-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d4ff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    animation: backgroundMove 30s linear infinite;
 }
 
-.benefit, .price-card {
-    background: var(--glass-panel); border: 1px solid var(--border-color);
-    padding: 40px; border-radius: 12px; backdrop-filter: blur(10px);
+@keyframes backgroundMove {
+    0% { background-position: 0 0, 0 0; }
+    100% { background-position: 60px 60px, 100% 100%; }
 }
-.price-card.featured {
-    border: 2px solid var(--primary-color); background: rgba(15, 23, 42, 0.9); transform: scale(1.05);
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z' fill='%230a1628'/%3E%3C/svg%3E") no-repeat bottom;
+    background-size: cover;
+    z-index: 1;
 }
-.badge {
-    background: var(--primary-color); color: #000; padding: 4px 12px;
-    border-radius: 20px; font-size: 12px; font-weight: 800; text-transform: uppercase;
-    display: inline-block; margin-bottom: 15px;
+
+.hero .container {
+    position: relative;
+    z-index: 2;
 }
-.price { font-size: 48px; font-weight: 700; color: var(--text-primary); margin: 20px 0; }
-.features { list-style: none; margin-bottom: 30px; text-align: left; }
-.features li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); }
-.features li::before { content: "✓"; color: var(--primary-color); margin-right: 10px; font-weight: bold; }
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    text-shadow: 
+        0 0 20px rgba(0, 212, 255, 0.5),
+        0 0 40px rgba(0, 212, 255, 0.3),
+        0 0 60px rgba(0, 212, 255, 0.1);
+    position: relative;
+}
+
+.hero .highlight {
+    color: var(--primary-color);
+    display: inline-block;
+    position: relative;
+    text-shadow: 
+        0 0 30px rgba(0, 212, 255, 0.8),
+        0 0 60px rgba(0, 212, 255, 0.5),
+        0 0 90px rgba(0, 212, 255, 0.3);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow: 
+            0 0 30px rgba(0, 212, 255, 0.8),
+            0 0 60px rgba(0, 212, 255, 0.5),
+            0 0 90px rgba(0, 212, 255, 0.3);
+    }
+    50% {
+        text-shadow: 
+            0 0 40px rgba(0, 212, 255, 1),
+            0 0 80px rgba(0, 212, 255, 0.7),
+            0 0 120px rgba(0, 212, 255, 0.5);
+    }
+}
+
+.hero p {
+    font-size: clamp(18px, 2.5vw, 20px);
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.trust-line {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    color: var(--text-muted);
+    font-size: 14px;
+    flex-wrap: wrap;
+}
 
 /* ============================================
-   5. HOW IT WORKS (FIXED & ALIEN)
+   WhatsApp Floating Button - Responsive
+   ============================================ */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    animation: none;
+}
+
+.whatsapp-float svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+}
+
+/* ============================================
+   Section Styles
+   ============================================ */
+section {
+    padding: 80px 0;
+    background: var(--bg-primary);
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: var(--text-primary);
+    position: relative;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+}
+
+/* ============================================
+   Benefits Section
+   ============================================ */
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.benefit {
+    text-align: center;
+    padding: 40px 30px;
+    background: rgba(15, 31, 58, 0.5);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.benefit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.benefit:hover::before {
+    left: 100%;
+}
+
+.benefit:hover {
+    border-color: rgba(0, 212, 255, 0.8);
+    transform: translateY(-8px);
+    box-shadow: 
+        0 20px 40px rgba(0, 212, 255, 0.3),
+        0 0 60px rgba(0, 212, 255, 0.2),
+        inset 0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+.benefit-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.benefit:hover .benefit-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.benefit h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.benefit p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ============================================
+   Pricing Section
+   ============================================ */
+.pricing {
+    background: var(--bg-secondary);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.price-card {
+    background: rgba(10, 22, 40, 0.8);
+    border-radius: 16px;
+    padding: 40px;
+    border: 2px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.price-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.price-card:hover::before {
+    opacity: 1;
+}
+
+.price-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 212, 255, 0.4),
+        0 0 80px rgba(0, 212, 255, 0.3),
+        inset 0 0 40px rgba(0, 212, 255, 0.1);
+}
+
+.price-card.featured {
+    border-color: var(--primary-color);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+    background: rgba(0, 212, 255, 0.05);
+    transform: scale(1.05);
+}
+
+.price-card.featured::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+}
+
+.badge {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--bg-primary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.price {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 20px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.price span {
+    font-size: 20px;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.setup-fee {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.features {
+    list-style: none;
+    margin: 30px 0;
+}
+
+.features li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 15px;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 24px;
+}
+
+.features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.features li:last-child {
+    border-bottom: none;
+}
+
+/* ============================================
+   Steps Section
    ============================================ */
 .steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
-    text-align: center;
-    position: relative; 
-    /* Ensures stacking context is local, so line stays relative to this section */
-    isolation: isolate; 
-}
-
-/* The Connecting Line - Brighter & Visible */
-.steps::before {
-    content: '';
-    position: absolute;
-    top: 30px; /* Vertically center with the 60px circles */
-    left: 10%;
-    right: 10%;
-    height: 4px; /* Thicker for visibility */
-    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-    
-    /* FIX: Use z-index 0 to sit inside the container, but behind the z-index 10 numbers */
-    z-index: -1; 
-    opacity: 0.8;
-    box-shadow: 0 0 15px var(--primary-color);
 }
 
 .step {
+    text-align: center;
     position: relative;
-    background: transparent; 
-    z-index: 1;
 }
 
 .step-number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     width: 60px;
     height: 60px;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    background-color: var(--bg-primary); /* VITAL: Covers the line passing behind */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--bg-primary);
     border-radius: 50%;
     font-size: 24px;
     font-weight: 700;
+    line-height: 60px;
     margin-bottom: 20px;
-    
-    /* OVERRIDE: This kills the tilted rotation bug from GSAP */
-    transform: none !important; 
-    rotate: 0deg !important;
-    
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
-    z-index: 10; /* Ensures it sits ON TOP of the line */
+    transition: all 0.3s;
+    position: relative;
+    z-index: 1;
+    box-shadow: 
+        0 0 20px rgba(0, 212, 255, 0.5),
+        0 0 40px rgba(0, 212, 255, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
-.step h3 { color: var(--text-primary); margin-bottom: 10px; font-size: 20px; }
+.step-number::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+    z-index: -1;
+}
+
+.step:hover .step-number::before {
+    width: 100px;
+    height: 100px;
+}
+
+.step:hover .step-number {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.step h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.step p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
 
 /* ============================================
-   6. FAQ & CONTACT
+   FAQ Section
    ============================================ */
-.faq { max-width: 800px; margin: 0 auto; }
-.faq-item {
-    background: var(--glass-panel); border: 1px solid var(--border-color);
-    border-radius: 8px; margin-bottom: 15px; overflow: hidden;
+.faq {
+    max-width: 800px;
+    margin: 0 auto;
 }
-.faq-question {
-    width: 100%; padding: 20px; text-align: left; background: none; border: none;
-    color: var(--text-primary); font-weight: 600; cursor: pointer;
-    display: flex; justify-content: space-between;
-}
-.faq-answer { 
-    padding: 0 20px; color: var(--text-muted); max-height: 0; overflow: hidden; 
-    transition: all 0.3s ease;
-}
-.faq-item.active .faq-answer { padding: 0 20px 20px; max-height: 500px; }
-.faq-item.active .faq-question { color: var(--primary-color); }
 
-.contact { background: linear-gradient(180deg, var(--bg-primary) 0%, #0f172a 100%); }
-.contact form {
-    max-width: 500px; margin: 0 auto; background: rgba(15, 23, 42, 0.8);
-    padding: 40px; border-radius: 16px; border: 1px solid var(--primary-color);
+.faq-item {
+    background: rgba(15, 31, 58, 0.5);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
 }
-.form-group { margin-bottom: 20px; }
-input, select, textarea {
-    width: 100%; padding: 15px; background: rgba(0, 0, 0, 0.4);
-    border: 1px solid #334155; border-radius: 8px; color: #fff; margin-bottom: 10px;
+
+.faq-item:hover {
+    border-color: rgba(0, 212, 255, 0.4);
+}
+
+.faq-item.active {
+    border-color: var(--primary-color);
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-primary);
+    transition: color 0.3s;
+}
+
+.faq-question:hover {
+    color: var(--primary-color);
+}
+
+.faq-question span:last-child {
+    font-size: 24px;
+    color: var(--primary-color);
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question span:last-child {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 20px;
+    color: var(--text-muted);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 20px 20px;
+    max-height: 500px;
 }
 
 /* ============================================
-   7. FOOTER
+   Contact Section - Futuristic Design
+   ============================================ */
+.contact {
+    background: linear-gradient(135deg, #0a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 153, 255, 0.15) 0%, transparent 50%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(0,212,255,0.1)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E");
+    opacity: 0.6;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { background-position: 0 0, 0 0, 0 0; }
+    100% { background-position: 0 0, 0 0, 100px 100px; }
+}
+
+.contact .container {
+    position: relative;
+    z-index: 1;
+}
+
+.contact h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: clamp(32px, 5vw, 48px);
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.contact p {
+    font-size: 18px;
+    margin-bottom: 50px;
+    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Futuristic Form Styling - Matching Image */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, rgba(15, 31, 58, 0.95) 0%, rgba(10, 22, 40, 0.98) 100%);
+    padding: 45px 40px;
+    border-radius: 20px;
+    border: 2px solid rgba(0, 212, 255, 0.4);
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(0, 212, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+form::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(0, 153, 255, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+form:hover::after {
+    opacity: 1;
+}
+
+.form-group {
+    margin-bottom: 24px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+}
+
+.form-group::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    transition: width 0.3s ease;
+}
+
+.form-group:focus-within::before {
+    width: 100%;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 16px 18px;
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: inherit;
+    background: rgba(20, 40, 70, 0.8) !important;
+    color: #ffffff !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+}
+
+input::placeholder, 
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath fill='%2300d4ff' d='M7 10L2 5h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 14px;
+    padding-right: 45px;
+    cursor: pointer;
+    color: #ffffff !important;
+}
+
+select option {
+    background: #0f1f3a;
+    color: #ffffff !important;
+    padding: 12px;
+}
+
+input:focus, 
+select:focus, 
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(25, 50, 85, 0.95) !important;
+    color: #ffffff !important;
+    box-shadow: 
+        0 0 0 4px rgba(0, 212, 255, 0.15),
+        0 0 20px rgba(0, 212, 255, 0.3),
+        inset 0 0 10px rgba(0, 212, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: rgba(0, 212, 255, 0.5);
+    background: rgba(25, 50, 85, 0.85) !important;
+    color: #ffffff !important;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+    line-height: 1.6;
+}
+
+/* Futuristic Submit Button */
+form .btn-primary {
+    background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 18px 32px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 20px rgba(0, 212, 255, 0.4),
+        0 0 0 0 rgba(0, 212, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+form .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+form .btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+form .btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 8px 30px rgba(0, 212, 255, 0.6),
+        0 0 40px rgba(0, 212, 255, 0.4);
+    background: linear-gradient(135deg, #00e6ff 0%, #00aaff 100%);
+}
+
+form .btn-primary:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* ============================================
+   Footer
    ============================================ */
 footer {
-    background: var(--bg-secondary); color: var(--text-secondary);
-    padding: 60px 0 20px; border-top: 1px solid var(--border-color); font-size: 14px;
+    background: var(--bg-dark);
+    color: white;
+    padding: 60px 0 30px;
+    border-top: 1px solid var(--border-color);
 }
+
 .footer-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px; margin-bottom: 40px; align-items: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
 }
-footer h4 { color: var(--text-primary); margin-bottom: 20px; font-weight: 700; text-transform: uppercase; }
-footer ul { list-style: none; padding: 0; margin: 0; }
-footer ul li { margin-bottom: 12px; }
-footer a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; display: inline-block; }
-footer a:hover { color: var(--primary-color); transform: translateX(5px); }
+
+.footer-brand p {
+    color: var(--text-muted);
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.footer h4 {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: var(--text-primary);
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 12px;
+}
+
+.footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: var(--primary-color);
+}
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 20px;
-    text-align: center; color: var(--text-muted); font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
 }
 
-/* WhatsApp */
-.whatsapp-float {
-    position: fixed; bottom: 20px; right: 20px; background: #25D366;
-    width: 60px; height: 60px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; z-index: 2000;
+/* ============================================
+   GSAP Animation Classes
+   ============================================ */
+.fade-in {
+    opacity: 0;
 }
-.whatsapp-float svg { width: 35px; height: 35px; fill: white; }
 
+.slide-up {
+    transform: translateY(40px);
+    opacity: 0;
+}
+
+.slide-down {
+    transform: translateY(-40px);
+    opacity: 0;
+}
+
+.scale-in {
+    transform: scale(0.8);
+    opacity: 0;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
 @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-    .steps::before { display: none; } /* Hide line on mobile */
-    .steps { grid-template-columns: 1fr; }
+    .nav-links {
+        display: none;
+    }
+    
+    .hero {
+        padding: 60px 0 80px;
+    }
+    
+    .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-ctas .btn {
+        width: 100%;
+    }
+    
+    .benefits,
+    .pricing-grid,
+    .steps,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .trust-line {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .whatsapp-float {
+        bottom: 15px;
+        right: 15px;
+        width: 55px;
+        height: 55px;
+    }
+    
+    .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .price-card.featured {
+        transform: scale(1);
+    }
 }
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .price-card,
+    .benefit {
+        padding: 30px 20px;
+    }
+    
+    .whatsapp-float {
+        bottom: 12px;
+        right: 12px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .whatsapp-float svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* ============================================
+   Performance Optimizations
+   ============================================ */
+.benefit,
+.price-card,
+.step,
+.faq-item {
+    will-change: transform;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
