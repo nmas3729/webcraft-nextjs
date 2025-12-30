@@ -4,7 +4,7 @@ import './globals.css';
 import Banner from './components/Banner';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
-import Script from 'next/script';  // ← This line is new (needed for Google Analytics)
+import Analytics from './components/Analytics';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,23 +24,9 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-        {/* Google Analytics - Start (everything below this line is new) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-P7B68F528Z"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-P7B68F528Z');
-          `}
-        </Script>
-        {/* Google Analytics - End */}
       </head>
       <body className={inter.className}>
+        <Analytics />
         <Banner />
         <Navigation />
         {children}
