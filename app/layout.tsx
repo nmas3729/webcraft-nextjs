@@ -1,0 +1,37 @@
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Banner from './components/Banner';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
+import Analytics from './components/Analytics';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: 'Website Design from R899/Month | NMAS WebCraft',
+  description: 'Custom Next.js websites for South African businesses. Pay nothing until live. No contracts. From R899/month.',
+  keywords: 'website design South Africa, pay monthly website, affordable website design, Next.js websites, custom website design, web design Johannesburg, small business websites South Africa',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className={inter.className}>
+        <Analytics />
+        <Banner />
+        <Navigation />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
+}
