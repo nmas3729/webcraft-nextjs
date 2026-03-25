@@ -4,7 +4,7 @@ export default function PortfolioSection() {
   return (
     <section id="portfolio">
       <div className="container">
-        <h2 className="section-title">Our Work</h2>
+        <h2 className="section-title">Featured Projects</h2>
         <p 
           style={{ 
             textAlign: 'center', 
@@ -13,7 +13,7 @@ export default function PortfolioSection() {
             marginBottom: '40px' 
           }}
         >
-          Trusted by these businesses
+          High-performance platforms engineered for ambitious South African brands.
         </p>
         
         <div 
@@ -34,7 +34,7 @@ export default function PortfolioSection() {
                 color: 'var(--text-primary)' 
               }}
             >
-              Amakhuma Mining
+              🔗 Amakhuma Mining
             </div>
             <a 
               href="https://amakhuma.co.za" 
@@ -45,8 +45,9 @@ export default function PortfolioSection() {
                 textDecoration: 'none', 
                 fontSize: '1rem' 
               }}
+              aria-label="View Amakhuma Mining website"
             >
-              → [View]
+              View Live Site ↗
             </a>
           </div>
           
@@ -59,7 +60,7 @@ export default function PortfolioSection() {
                 color: 'var(--text-primary)' 
               }}
             >
-              Siko Mining Services
+              🔗 Siko Mining Services
             </div>
             <a 
               href="https://sikomining.co.za" 
@@ -70,8 +71,9 @@ export default function PortfolioSection() {
                 textDecoration: 'none', 
                 fontSize: '1rem' 
               }}
+              aria-label="View Siko Mining Services website"
             >
-              → [View]
+              View Live Site ↗
             </a>
           </div>
           
@@ -84,7 +86,7 @@ export default function PortfolioSection() {
                 color: 'var(--text-primary)' 
               }}
             >
-              NMAS Innovations
+              🔗 NMAS Innovations
             </div>
             <a 
               href="https://nmas.co.za" 
@@ -95,8 +97,9 @@ export default function PortfolioSection() {
                 textDecoration: 'none', 
                 fontSize: '1rem' 
               }}
+              aria-label="View NMAS Innovations website"
             >
-              → [View]
+              View Live Site ↗
             </a>
           </div>
           
@@ -109,7 +112,7 @@ export default function PortfolioSection() {
                 color: 'var(--text-primary)' 
               }}
             >
-              Mpumi Studio
+              🔗 Mpumi Studio
             </div>
             <a 
               href="https://mpumi.nmas.co.za" 
@@ -120,8 +123,9 @@ export default function PortfolioSection() {
                 textDecoration: 'none', 
                 fontSize: '1rem' 
               }}
+              aria-label="View Mpumi Studio website"
             >
-              → [View]
+              View Live Site ↗
             </a>
           </div>
 
@@ -134,7 +138,7 @@ export default function PortfolioSection() {
                 color: 'var(--text-primary)' 
               }}
             >
-              ECALVIN ETRICIAN
+              🔗 ECALVIN ETRICIAN
             </div>
             <a 
               href="https://ecalvinetrician.co.za" 
@@ -145,8 +149,9 @@ export default function PortfolioSection() {
                 textDecoration: 'none', 
                 fontSize: '1rem' 
               }}
+              aria-label="View ECALVIN ETRICIAN website"
             >
-              → [View]
+              View Live Site ↗
             </a>
           </div>
           

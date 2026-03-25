@@ -20,7 +20,7 @@
     --bg-dark: #050d18;
     --text-primary: #ffffff;
     --text-secondary: #e5e7eb;
-    --text-muted: #9ca3af;
+    --text-muted: #cbd5e1;
     --border-color: rgba(0, 212, 255, 0.2);
     --shadow-glow: rgba(0, 212, 255, 0.4);
 }
@@ -35,6 +35,10 @@ body {
     color: var(--text-secondary);
     background: var(--bg-primary);
     overflow-x: hidden;
+}
+
+p a {
+    text-decoration: underline;
 }
 
 .container {

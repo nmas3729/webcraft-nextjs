@@ -3,18 +3,18 @@ import type { Benefit } from '../lib/types';
 const benefits: Benefit[] = [
   {
     icon: '💰',
-    title: 'Pay After, Not Before',
-    description: 'See your website first. Love it, then pay. No R30K upfront.'
+    title: 'See It Before You Pay',
+    description: 'We build your preview site completely risk-free. Only pay when you love the final design.'
   },
   {
     icon: '🔓',
-    title: 'No Contracts',
-    description: 'Cancel anytime. No penalties. No questions.'
+    title: 'Zero Lock-In Contracts',
+    description: 'Enjoy total flexibility. Our month-to-month subscriptions can be cancelled at any time without penalties.'
   },
   {
     icon: '⚡',
-    title: 'Built for Speed',
-    description: 'Loads in 2 seconds. Google loves fast sites.'
+    title: 'Engineered for Speed',
+    description: 'Built on lightning-fast Next.js architecture. Your site loads in under 2 seconds, maximizing Google rankings.'
   }
 ];
 

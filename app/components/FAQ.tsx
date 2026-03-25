@@ -6,27 +6,27 @@ import type { FAQItem } from '../lib/types';
 const faqs: FAQItem[] = [
   {
     question: 'Really pay nothing upfront?',
-    answer: 'Yes. We build first. You pay after approval.'
+    answer: 'Yes. We build your site first. You only pay setup and subscription costs after approving the final design.'
   },
   {
     question: 'Can I cancel anytime?',
-    answer: 'Yes. 30 days notice.'
+    answer: 'Yes. Our subscriptions are month-to-month. Just give us 30 days\' notice.'
   },
   {
     question: 'Why not WordPress?',
-    answer: 'Next.js loads in 2 seconds. WordPress takes 5-8. Faster = better Google ranking.'
+    answer: 'Next.js loads in under 2 seconds. Faster load times mean better Google rankings and higher conversion rates.'
   },
   {
     question: 'Need changes after launch?',
-    answer: 'Included. We fix within 48 hours.'
+    answer: 'It\'s included in your plan. Send us your updates and we\'ll implement them within 48 hours.'
   },
   {
     question: 'How long to build?',
-    answer: '5 days to preview. 24 hours to go live.'
+    answer: '5 days for your initial preview, and 24 hours to launch after your approval.'
   },
   {
     question: 'Works on mobile?',
-    answer: 'Yes. Mobile-first design.'
+    answer: 'Absolutely. Every site we build is optimized for a flawless mobile experience.'
   }
 ];
 

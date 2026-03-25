@@ -3,23 +3,23 @@ import type { Step } from '../lib/types';
 const steps: Step[] = [
   {
     number: 1,
-    title: 'Call Us',
-    description: '15 minutes. Free.'
+    title: 'Free Strategy Call',
+    description: 'A quick 15-minute consultation to understand your business goals.'
   },
   {
     number: 2,
-    title: 'We Build',
-    description: '5 days. No charge.'
+    title: 'We Build Your Preview',
+    description: 'We design and develop your fully functional site in just 5 days.'
   },
   {
     number: 3,
-    title: 'You Review',
-    description: 'Change what you want.'
+    title: 'You Review & Refine',
+    description: 'We make unlimited revisions until you are completely satisfied.'
   },
   {
     number: 4,
-    title: 'Go Live',
-    description: 'Love it? Pay. Live in 24hrs.'
+    title: 'Subscribe & Go Live',
+    description: 'Approve the design, start your subscription, and launch within 24 hours.'
   }
 ];
 

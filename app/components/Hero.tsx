@@ -12,10 +12,10 @@ export default function Hero() {
     <section className="hero">
       <div className="container">
         <h1>
-          Premium Websites from<br />
-          <span className="highlight">R899/Month</span>
+          Professional Websites from<br />
+          <span className="highlight">R899/month</span>
         </h1>
-        <p>Pay nothing until it&apos;s live. No contracts.</p>
+        <p>All-inclusive website subscriptions. Zero upfront costs. Cancel anytime.</p>
         <div className="hero-ctas">
           <button 
             className="btn btn-primary"

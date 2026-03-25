@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { useState, FormEvent } from 'react';
-import type { FormData } from '../lib/types';
+import { useState, FormEvent } from "react";
+import type { FormData } from "../lib/types";
 
 export default function Contact() {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    business: '',
-    email: '',
-    phone: '',
-    plan: '',
-    message: ''
+    name: "",
+    business: "",
+    email: "",
+    phone: "",
+    plan: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,35 +24,42 @@ export default function Contact() {
     const whatsappURL = `https://wa.me/27674877278?text=${encodeURIComponent(whatsappMessage)}`;
 
     // Open WhatsApp
-    window.open(whatsappURL, '_blank');
+    window.open(whatsappURL, "_blank");
 
     // Reset form
     setFormData({
-      name: '',
-      business: '',
-      email: '',
-      phone: '',
-      plan: '',
-      message: ''
+      name: "",
+      business: "",
+      email: "",
+      phone: "",
+      plan: "",
+      message: "",
     });
 
     setIsSubmitting(false);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   return (
     <section className="contact" id="contact">
       <div className="container">
-        <h2>Ready?</h2>
+        <h2>Ready to elevate your business?</h2>
         <p>
-          <a href="mailto:webcraft@nmas.co.za" style={{ color: 'inherit', textDecoration: 'none' }}>
-            Get your free website preview in 5 days.
+          <a
+            href="mailto:webcraft@nmas.co.za"
+            style={{ color: "inherit", textDecoration: "none" }}
+          >
+            Get your free, no-obligation website preview in 5 days.
           </a>
         </p>
         <form id="contactForm" onSubmit={handleSubmit}>
@@ -97,16 +104,22 @@ export default function Contact() {
             />
           </div>
           <div className="form-group">
-            <select 
-              name="plan" 
+            <label htmlFor="plan" className="sr-only">
+              Pick a plan
+            </label>
+            <select
+              id="plan"
+              name="plan"
               required
               value={formData.plan}
               onChange={handleChange}
             >
               <option value="">Pick a plan *</option>
-              <option value="Starter">Starter (R899/mo)</option>
-              <option value="Business">Business (R1,799/mo)</option>
-              <option value="Enterprise">Enterprise (R3,499/mo)</option>
+              <option value="Starter Website">Starter Website (R899 per month)</option>
+              <option value="Business Growth Plan">
+                Business Growth Plan (R1,499 per month)
+              </option>
+              <option value="Enterprise Website">Enterprise Website (R3,499 per month)</option>
             </select>
           </div>
           <div className="form-group">
@@ -119,12 +132,12 @@ export default function Contact() {
               onChange={handleChange}
             />
           </div>
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="btn btn-primary btn-full"
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Sending...' : 'Get Free Preview'}
+            {isSubmitting ? "Sending..." : "Get Free Preview"}
           </button>
         </form>
       </div>
