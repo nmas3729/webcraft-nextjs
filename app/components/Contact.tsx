@@ -119,17 +119,17 @@ export default function Contact() {
   return (
     <section className="contact" id="contact">
       <div className="container">
-        <h2>Ready to elevate your business?</h2>
+        <h2>Ready to Get More Leads?</h2>
         <p>
           <a
             href="mailto:webcraft@nmas.co.za"
             style={{ color: "inherit", textDecoration: "none" }}
           >
-            Get your free, no-obligation website preview in 5 days.
+            Get your free website preview in 5 days. No upfront payment.
           </a>
         </p>
 
-        <div className="mb-8 text-center">
+        <div className="mb-8 flex items-center justify-center gap-4 flex-wrap">
           <button
             type="button"
             className="btn btn-primary rounded-full bg-[#f97316] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-orange-500/20"
@@ -138,6 +138,15 @@ export default function Contact() {
           >
             Pick a plan
           </button>
+          <a
+            href="https://wa.me/27674877278?text=Hi%20NMAS%20WebCraft%2C%20I'm%20interested%20in%20a%20free%20website%20preview"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn rounded-full px-6 py-4 text-base font-semibold text-white shadow-lg"
+            style={{ backgroundColor: '#22c55e' }}
+          >
+            💬 WhatsApp Us Now
+          </a>
         </div>
 
         <form id="contactForm" onSubmit={handleSubmit}>
@@ -193,11 +202,11 @@ export default function Contact() {
               onChange={handleChange}
             >
               <option value="">Pick a plan *</option>
-              <option value="Starter Website">Starter Website (R899 per month)</option>
-              <option value="Business Growth Plan">
-                Business Growth Plan (R1,499 per month)
+              <option value="Starter Website">Starter Website (R6,500 once-off)</option>
+              <option value="Business Growth Website">
+                Business Growth Website (R9,500 once-off)
               </option>
-              <option value="Enterprise Website">Enterprise Website (R3,499 per month)</option>
+              <option value="Premium Website">Premium Website (R12,500+ once-off)</option>
             </select>
           </div>
           <div className="form-group">
@@ -301,8 +310,8 @@ export default function Contact() {
                   >
                     <option value="">Select plan *</option>
                     <option value="Starter Website">Starter Website</option>
-                    <option value="Business Growth Plan">Business Growth Plan</option>
-                    <option value="Enterprise Website">Enterprise Website</option>
+                    <option value="Business Growth Website">Business Growth Website</option>
+                    <option value="Premium Website">Premium Website</option>
                   </select>
                 </div>
                 <button

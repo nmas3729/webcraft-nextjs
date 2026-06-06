@@ -49,29 +49,28 @@ export default function Hero() {
     <section className="hero">
       <div className="container">
         <h1>
-          Professional Websites from<br />
-          <span className="highlight">R899/month</span>
+          Professional Websites That
+          <span className="highlight"> Generate Leads</span>
         </h1>
-        <p>All-inclusive website subscriptions. Zero upfront costs. Cancel anytime.</p>
+        <p>Get more WhatsApp enquiries and customer calls.</p>
         <div className="hero-ctas">
           <button 
             className="btn btn-primary"
             onClick={() => scrollToSection('#contact')}
           >
-            Get Your Free Preview
+            Get Free Website Preview →
           </button>
-          <button 
+          <a 
+            href="https://wa.me/27674877278?text=Hi%20NMAS%20WebCraft%2C%20I'm%20interested%20in%20a%20free%20website%20preview"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-secondary"
-            onClick={() => scrollToSection('#pricing')}
+            style={{ backgroundColor: '#22c55e' }}
           >
-            View Pricing
-          </button>
+            💬 WhatsApp Us Now
+          </a>
         </div>
-        <div className="trust-line">
-          <span>✓ Zero Upfront</span>
-          <span>✓ Cancel Anytime</span>
-          <span>✓ Lightning Fast</span>
-        </div>
+
 
         <form
           onSubmit={handleHeroSubmit}
@@ -94,7 +93,7 @@ export default function Hero() {
             {isHeroSubmitting ? 'Sending...' : 'Get Free Preview →'}
           </button>
         </form>
-        <p className="mt-3 text-sm text-slate-300">No credit card. Preview in 5 days.</p>
+
         {heroStatus ? <p className="mt-3 text-sm text-lime-300">{heroStatus}</p> : null}
       </div>
     </section>

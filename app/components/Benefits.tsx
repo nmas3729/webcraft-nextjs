@@ -8,8 +8,8 @@ const benefits: Benefit[] = [
   },
   {
     icon: '🔓',
-    title: 'Zero Lock-In Contracts',
-    description: 'Enjoy total flexibility. Our month-to-month subscriptions can be cancelled at any time without penalties.'
+    title: 'Built to Generate Leads',
+    description: 'WhatsApp buttons, contact forms, and SEO to turn visitors into customers.'
   },
   {
     icon: '⚡',

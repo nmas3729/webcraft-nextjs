@@ -6,45 +6,44 @@ const pricingTiers: PricingTier[] = [
   {
     name: 'Starter Website',
     badge: '',
-    price: 899,
-    setup: 725,
+    price: 6500,
+    setup: 0,
     features: [
-      '5-page responsive website',
-      'Mobile-friendly design',
-      '3 professional email accounts (10GB each)',
-      'Hosting included',
-      'Free .co.za domain'
+      '5–6 page business website',
+      'Mobile responsive design',
+      'WhatsApp integration',
+      'Contact / quote form',
+      'Basic SEO setup',
+      'Hosting setup assistance',
+      '3 business email accounts'
     ],
     featured: false
   },
   {
-    name: 'Business Growth Plan',
-    badge: 'Best Value',
-    price: 1499,
-    setup: 725,
+    name: 'Business Growth Website',
+    badge: 'Most Popular',
+    price: 9500,
+    setup: 0,
     features: [
-      '5-page professional website',
-      '3 professional email accounts',
-      'WhatsApp chat integration',
-      'Basic website analytics setup',
-      'Basic social media posting (up to 8 posts/month on Facebook & TikTok)',
-      'Google Business Profile setup'
+      'Everything in Starter',
+      'Extra pages (Projects / Testimonials)',
+      'Improved UI/UX layout for conversions',
+      'Lead-focused design improvements',
+      'Optional calculator or lead tool'
     ],
     featured: true
   },
   {
-    name: 'Enterprise Website',
+    name: 'Premium Website',
     badge: 'Premium',
-    price: 3499,
-    setup: 950,
+    price: 12500,
+    setup: 0,
     features: [
-      'Up to 10–15 page professional website',
-      'Online store OR booking system',
-      'Payment gateway integration',
-      '5 professional email accounts',
-      'WhatsApp chat integration',
-      'Priority support (business hours)',
-      'Basic SEO & Google setup'
+      'Everything in Business Growth',
+      'Advanced UI design',
+      'Booking system or payment integration',
+      'Higher conversion optimization',
+      'Priority delivery'
     ],
     featured: false
   }
@@ -75,8 +74,8 @@ export default function Pricing() {
               ) : null}
               <h3 className="text-2xl font-bold text-white">{tier.name}</h3>
               <div className="mt-4 text-4xl font-semibold text-white">
-                R{tier.price}
-                <span className="text-base font-medium text-slate-400"> per month</span>
+                R{tier.price.toLocaleString()}{tier.price === 12500 ? '+' : ''}
+                <span className="text-base font-medium text-slate-400"> (Once-off)</span>
               </div>
               <div className="mt-4 inline-flex rounded-full bg-[#f97316]/15 px-4 py-2 text-sm font-semibold text-[#f97316]">
                 🚀 Setup fee waived – limited spots
@@ -101,7 +100,7 @@ export default function Pricing() {
         </div>
         <div className="mt-12 text-center text-lg text-slate-300 opacity-90">
           <p>Every plan includes secure hosting, ongoing maintenance, regular updates, and dedicated support.</p>
-          <p>Simple monthly billing. Cancel anytime.</p>
+          <p>Simple once-off billing. No monthly fees.</p>
         </div>
       </div>
     </section>

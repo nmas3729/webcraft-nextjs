@@ -6,11 +6,11 @@ import type { FAQItem } from '../lib/types';
 const faqs: FAQItem[] = [
   {
     question: 'Really pay nothing upfront?',
-    answer: 'Yes. We build your site first. You only pay setup and subscription costs after approving the final design.'
+    answer: 'Yes. We build your site first. You only pay the once-off fee after approving the final design.'
   },
   {
-    question: 'Can I cancel anytime?',
-    answer: 'Yes. Our subscriptions are month-to-month. Just give us 30 days\' notice.'
+    question: 'Will this help me get more customers?',
+    answer: 'Yes. Every site includes WhatsApp integration, contact forms, and lead-focused design to turn visitors into paying customers.'
   },
   {
     question: 'Why not WordPress?',
